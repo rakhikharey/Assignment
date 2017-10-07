@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "receiptdetail";
+    Layout = "~/Views/Shared/retail_layout.cshtml";
+}
+
+<h2>Receipt</h2>
+<hr />
+<br />
+
+@{ var customer = ViewBag.Customer;
+    var rec = ViewBag.Receipt;
+    
+}
+<div style="text-decoration:underline;font-weight:bold">Customer name: @customer.Customer_name</div>
+
+<br />
+<div>
+    <table>
+        <tr><td>Item name</td><td>Price (Rs)</td></tr>
+        @foreach (var item in rec.Item_detail)
+        {
+            <tr><td>@item.Item_name</td><td>@item.Price</td></tr>
+            
+
+        }
+       
+        <tr><td style="border-top:solid 1px">Discount</td><td style="border-top:solid 1px">@ViewBag.disc</td></tr>
+        <tr><td>Other Discount</td><td>@ViewBag.otherdiscount</td></tr>
+        <tr><td style="border-top:solid 1px">Total</td><td style="border-top:solid 1px">@rec.Totalprice</td></tr>
+    </table>
+</div>

@@ -1,0 +1,39 @@
+﻿[
+  {
+    "id": 1,
+    "item_name": "coffee",
+    "price": 200,
+    "item_category":  "grocery"
+  },
+  {
+   "id": 2,
+    "item_name": "bed sheet",
+    "price": 1200,
+    "item_category": "decore"
+
+  },
+  {
+    "id": 3,
+    "item_name": "Sugar",
+    "price": 200,
+    "item_category":  "grocery"
+  },
+  {
+    "id": 4,
+    "item_name": "Mat",
+    "price": 500,
+    "item_category":  "decore"
+  },
+  {
+  "id": 5,
+    "item_name": "Rice",
+    "price": 400,
+    "item_category":  "grocery"
+  },
+  {
+    "id": 6,
+    "item_name": "Oil",
+    "price": 200,
+    "item_category":  "grocery"
+  }
+]

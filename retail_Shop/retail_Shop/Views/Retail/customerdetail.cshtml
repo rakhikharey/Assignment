@@ -1,0 +1,63 @@
+﻿
+
+@{
+    ViewBag.Title = "customerdetail";
+    Layout = "~/Views/Shared/retail_layout.cshtml";
+}
+
+<h2>Customer Information</h2>
+<hr /><br />
+@{ var customer = ViewBag.Customer;
+    var items = ViewBag.Items;}
+<div><span style="font-weight:bold">Customer name:</span> @customer.Customer_name</div>
+<div><span style="font-weight:bold">Customer Type:</span> @customer.Cust_Type_Info.Customer_type</div>
+@*@if (@customer.disc_flag == "0")
+    {
+        var text = "";
+        switch (customer.customer_type)
+        {
+            case "CT-2":
+                text = "Get 30% discount";
+                break;
+            case "CT-3":
+                text = "Get 10% discount";
+                break;
+            case "CT-1":
+                TimeSpan ts = DateTime.Now.Subtract(Convert.ToDateTime(customer.customer_entry_date));
+                if(ts.Duration
+        }
+    <div>You can get </div>
+    }*@
+
+<div>
+    <ul>
+        <li><div style="display :inline-flex;">
+            <div style="width:100px">Item Name</div> 
+            <input id="item" type="checkbox" style="visibility:hidden" /> <div style="width:100px;text-align:right"> Price (Rs)</div>
+</div></li>
+@{int i = 1;
+
+    foreach (var item in items)
+    {
+        <li><div style="display :inline-flex;"><div style="width:100px">@item.Item_name</div> <input id="item-@i" type="checkbox" /> <div style="width:100px;text-align:right"> @item.Price</div> </div></li>
+        i = i + 1;
+    }
+}
+    </ul>
+</div>
+<a href="javascript:void(0)" onclick="getitemDetail();">purchase</a>
+<script>
+    function getitemDetail() {
+        var i=@items.Count;
+        var itemcode = "";
+        for (var j = 0; j < i; j++) {
+            var checked = $("input[id=" + ("item-"+(j + 1)) + "]:checked").length;
+            if (checked==1) {
+                itemcode += "," + (j + 1);
+            }
+        }
+
+        window.location = "/retail/receipt/@customer.User_name?id=" + itemcode;
+    }
+
+</script>
